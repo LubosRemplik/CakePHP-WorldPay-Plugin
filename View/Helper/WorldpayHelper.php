@@ -32,14 +32,26 @@ class WorldpayHelper extends AppHelper {
 			}
 		}
 		
+		// Currency
+		$currency = Configure::read('Shop.currency');
+		
 		// Mandatory fields
 		$fields = array(
-			'instId'	=> array('type' => 'hidden', 'name' => 'instId',	'value' => $instId),
-			'cartId'	=> array('type' => 'hidden', 'name' => 'cartId',	'value' => $cartId),
-			'amount'	=> array('type' => 'hidden', 'name' => 'amount',	'value' => $amount),
-			'currency'	=> array('type' => 'hidden', 'name' => 'currency',	'value' => Configure::read('Shop.currency')),
-			'desc'		=> array('type' => 'hidden', 'name' => 'desc',		'value' => implode(' ', array(AppPreference::get('application_name'), __('purchase'))))
+			'instId'	=> array('type'		=> 'hidden', 'name' => 'instId',		'value' => $instId),
+			'cartId'	=> array('type'		=> 'hidden', 'name' => 'cartId',		'value' => $cartId),
+			'amount'	=> array('type'		=> 'hidden', 'name' => 'amount',		'value' => $amount),
+			'currency'	=> array('type'		=> 'hidden', 'name' => 'currency',		'value' => $currency),
+			'desc'		=> array('type'		=> 'hidden', 'name' => 'desc',			'value' => implode(' ', array(AppPreference::get('application_name'), __('purchase')))),
+			//'authValidTo' => array('type'	=> 'hidden', 'name' => 'authValidTo',	'value' => time()+600*1000)
 		);
+		
+		// Signature
+		$signatureFields = array('instId', 'cartId', 'amount', 'currency');
+		$signature = array(Configure::read('Worldpay.secret'));
+		foreach ($signatureFields as $signatureField) {
+			$signature[] = $$signatureField;
+		}
+		$fields['signature'] = array('type'		=> 'hidden', 'name' => 'signature',	'value' => md5(implode(':', $signature)));
 		
 		// Custom description
 		if (isset($desc)) {
