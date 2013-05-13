@@ -49,8 +49,8 @@ If you use Mecharn admin configuration suggested above, check WorldpayController
 
 To test your payment process (in test mode) use
 
-Card number: 5555555555554444
-Security Code: leave empty
+Card number: 5555555555554444  
+Security Code: leave empty  
 Expiry date: random date (max 5 years in future)
 
 Then fill in all required fields with dummy details
