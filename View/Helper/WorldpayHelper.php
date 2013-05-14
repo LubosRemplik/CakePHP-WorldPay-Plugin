@@ -102,7 +102,13 @@ class WorldpayHelper extends AppHelper {
 				),
 				$fields
 			)),
-			$this->Form->submit(__('Proceed to payment gateway')),
+			$this->Form->submit(
+				__('Proceed to payment gateway'),
+				array(
+					'div' => false,
+					'class' => 'button worldpay2'
+				)
+			),
 			$this->Form->end()
 		));
 	}
