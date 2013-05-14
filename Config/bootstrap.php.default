@@ -3,10 +3,10 @@
 $config = array(
 	'mode' => 'test', // change this to 'live' when test was successful
 	'installation' => 123456, // installation id, check worldpay mecharn admin
+	'complete-url' => 'http://url-when-payment-is-complete',
 );
 Configure::write('Worldpay', $config);
 
 // delete/amend below if you have already app configured
-Configure::write('App.url', 'http://url-where-successful-payment-is-redirected');
 Configure::write('App.name', 'App name');
 Configure::write('App.logo', '/path/to/image/in/webroot');
