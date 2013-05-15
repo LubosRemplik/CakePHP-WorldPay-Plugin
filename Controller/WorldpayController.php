@@ -16,6 +16,8 @@ class WorldpayController extends AppController {
 				$this->ShopOrder->id = $this->request->data['cartId'];
 				$this->ShopOrder->saveField('status', 1);
 				return $this->render('index', false);
+			} elseif ($this->request->data['transStatus'] == 'C') {
+				return $this->render('cancel', false);
 			}
 		}
 	}

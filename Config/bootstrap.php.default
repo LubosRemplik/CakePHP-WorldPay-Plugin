@@ -4,6 +4,7 @@ $config = array(
 	'mode' => 'test', // change this to 'live' when test was successful
 	'installation' => 123456, // installation id, check worldpay mecharn admin
 	'complete-url' => 'http://url-when-payment-is-complete',
+	'cancel-url' => 'http://url-when-payment-is-cancelled',
 );
 Configure::write('Worldpay', $config);
 
