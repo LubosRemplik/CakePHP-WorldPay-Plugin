@@ -37,6 +37,7 @@ class WorldpayHelper extends AppHelper {
 		
 		// Mandatory fields
 		$fields = array(
+			'accId1'	=> array('type'		=> 'hidden', 'name' => 'accId1',		'value' => $accId1),
 			'instId'	=> array('type'		=> 'hidden', 'name' => 'instId',		'value' => $instId),
 			'cartId'	=> array('type'		=> 'hidden', 'name' => 'cartId',		'value' => $cartId),
 			'amount'	=> array('type'		=> 'hidden', 'name' => 'amount',		'value' => $amount),
