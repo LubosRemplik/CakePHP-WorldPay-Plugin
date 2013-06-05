@@ -104,7 +104,7 @@ class WorldpayHelper extends AppHelper {
 				$fields
 			)),
 			$this->Form->submit(
-				__('Proceed to payment gateway'),
+				__('Proceed to Payment'),
 				array(
 					'div' => false,
 					'class' => 'button worldpay2'
